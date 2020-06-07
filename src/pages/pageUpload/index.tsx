@@ -10,6 +10,7 @@ const PageUpload = () => {
         action='https://www.mocky.io/v2/5cc8019d300000980a055e76'
         listType='picture-card'
         accept='image/*'
+        multiple={true}
         fileData={[{
           size: 0,
           type: '',

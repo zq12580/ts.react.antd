@@ -5,10 +5,6 @@ import NavHeader from "../../components/navheader";
 import NavSider from "../../components/navsider";
 import TabPage from '../../components/tabpage';
 import HomeState from "./state";
-import { Route, Switch } from 'react-router-dom';
-import Nothingness from "../../components/404";
-import Demo1 from "../demo1/demo";
-import Login from "../login/login";
 
 const Home = (props: any) => {
   const { headerData, siderData, tabSelectKey, tabList, tabRemove, tabChangeKey, tabClean } = HomeState()

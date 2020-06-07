@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import ImgCrop from 'antd-img-crop';
-import Cropper from 'react-easy-crop'
 import Zmage from 'react-zmage'
 import { Upload, Modal, message } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
@@ -18,15 +17,18 @@ function getBase64(file: any) {
   });
 }
 const CustomUpload: React.FC<Props> = (props) => {
-  const { fileData, listType, accept, action, data, disabled, fileNum, showUploadList, uploadBut, uploadCrop } = props
+  const { fileData, listType, accept, action, data, disabled, fileNum, showUploadList, uploadBut, uploadCrop, multiple } = props
   const [fileList, setFileList] = useState<UploadFile[]>([])
   useEffect(() => {
     setFileList(fileData || [])
   }, [fileData])
 
+
+
+
   // 上传前
   const beforeUpload = (file: RcFile, FileList: RcFile[]) => {
-    console.log(file);
+    console.log('上传前=>', file);
     message.loading('上传中...', 0)
     return true
   }
@@ -58,11 +60,12 @@ const CustomUpload: React.FC<Props> = (props) => {
   const onChange = (info: UploadChangeParam) => {
     const { status } = info.file
     if (status === 'uploading') {
-      console.log('上传中=>', info);
+      // console.log('上传中=>', info);
       setFileList(info.fileList)
     }
     if (status === "error") {
       console.log('错误=>', info);
+      message.error('上传失败')
       message.destroy()
     }
     if (status === "removed") {
@@ -91,6 +94,7 @@ const CustomUpload: React.FC<Props> = (props) => {
     listType={listType}
     data={data}
     disabled={disabled}
+    multiple={multiple}
     showUploadList={showUploadList}
     onChange={onChange}
     beforeUpload={beforeUpload}

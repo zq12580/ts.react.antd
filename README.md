@@ -4,7 +4,7 @@
 `ts+react+axiox+react-redux+redux-saga+antd`
 ## 项目搭建
 * ` creat-react-app ` 脚手架
-* ` ant.design ` UI框架
+* ` ant.design ` UI框架git
 ## 运用的控件
 * `ag-grid` [表格控件]('https://motion.ant.design/index-cn')('https://motion.ant.design/index-cn')
 * `antd-img-crop` [图片剪切]('https://github.com/nanxiaobei/antd-img-crop')('https://motion.ant.design/index-cn')
