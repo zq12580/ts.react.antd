@@ -14,7 +14,13 @@ const Home = (props: any) => {
         <NavSider data={siderData} curKey={tabSelectKey} />
         <Layout.Content >
           <NavHeader data={headerData} curKey={tabSelectKey} />
-          <TabPage data={tabList} selcetKey={tabSelectKey} onRemove={tabRemove} onChangeKey={tabChangeKey} onClean={tabClean} />
+          <TabPage
+            data={tabList}
+            selcetKey={tabSelectKey}
+            onRemove={tabRemove}
+            onChangeKey={tabChangeKey}
+            onClean={tabClean}
+          />
           {/* <Switch>
             <Route exact path="/nav1" component={Demo1}></Route>
             <Route exact path="/nav1/option2" component={Login}></Route>

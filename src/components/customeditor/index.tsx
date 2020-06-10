@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import BraftEditor, { EditorState, ControlType, ExtendControlType } from 'braft-editor'
 import 'braft-editor/dist/index.css'
-import { Upload, Button } from 'antd';
-
+import { Upload } from 'antd';
 
 const CustomEditor: React.FC<Props> = (props) => {
+  const { dataSource, handChange } = props
   const [editorState, seteditorState] = useState<EditorState>();
-  const [editVal, setEditVal] = useState<string>('')
   useEffect(() => {
-    seteditorState(BraftEditor.createEditorState('<p>hellow zq</p>'));
+    seteditorState(BraftEditor.createEditorState(dataSource));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   // 数据赋值
   const onChange = (editorState: EditorState) => {
     seteditorState(editorState)
-    setEditVal(editorState.toHTML());
+    handChange(editorState.toHTML())
   }
   //内置控件
   const controls: ControlType[] = [
@@ -60,7 +60,6 @@ const CustomEditor: React.FC<Props> = (props) => {
         extendControls={extendControls}//扩展控件
         contentStyle={{ height: 300, boxShadow: 'inset 0 1px 3px rgba(0,0,0,.1)' }}
       />
-      <div style={{ color: '#7CA4DE', height: 300 }}>{editVal}</div>
     </div>
   )
 }
@@ -69,5 +68,6 @@ export default CustomEditor
 
 // 数据类型
 interface Props {
-
+  dataSource?: string; //数据
+  handChange: (params: string) => void;//onchang事件
 }

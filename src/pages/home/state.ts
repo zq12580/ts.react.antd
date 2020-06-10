@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { headerData, siderList } from "./navdata";
+import { headerData, siderList } from "../../modules/NavData";
 import { useLocation } from 'react-router-dom';
 
 const HomeState = () => {
@@ -23,7 +23,7 @@ const HomeState = () => {
   }, [tabSelectKey])
   // 页签导航
   const tabNav = (path: string) => {
-    const newTabList = tabList
+    const newTabList = [...tabList]
     const tabArr = siderList.flat().filter(item => item.path === path)//获取点击的那一项
     const isQualified = newTabList.some((item: any) => item.path === tabArr[0].path)//判断当前页签是否含有
     setTabSelectKey(path)

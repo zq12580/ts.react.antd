@@ -40,7 +40,7 @@ const TabPage: React.FC<Props> = (props) => {
               tab={<span style={{ fontWeight: 500 }}>{item.title}</span>}
               key={item.key}
               closable={key < tabList.length - 1}
-              style={{ padding: 10 }}
+              style={{ padding: 10, maxHeight: 830, overflow: 'auto' }}
             >
               {<item.component />}
             </Tabs.TabPane>

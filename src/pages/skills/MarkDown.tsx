@@ -30,6 +30,9 @@ const pageMd = () => {
       <div># </div>
       <div>代码 ``</div>
       <div>代码块``` ```</div>
+      <h1>md转为html</h1>
+      <p> npm install -g i5ting_toc</p>
+      <p> i5ting_toc -f MarkDown.md</p>
     </div>
   )
 }

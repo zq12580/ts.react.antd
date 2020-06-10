@@ -32,9 +32,9 @@ const PageTable = () => {
 
   const requestData = async () => {
     const resData = await GET_TABLE()
-    const resData2 = await POST_TABLE()
     setRowData(resData);
-    console.log('resData2=>', resData2);
+    // const resData2 = await POST_TABLE()
+    // console.log('resData2=>', resData2);
   }
 
 

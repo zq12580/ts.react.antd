@@ -1,10 +1,13 @@
 import React from 'react'
-import PageTable from "../pageTable";
-import PageIcon from "../pageIcon";
-import PageUpload from "../pageUpload";
-import PageCheats from "../pageCheats";
-import PageMd from "../pageMd";
-import CustomEditor from "../../components/customeditor";
+import PageTable from "../pages/pageTable";
+import PageIcon from "../pages/pageIcon";
+import PageUpload from "../pages/pageUpload";
+import PageCheats from "../pages/pageCheats";
+import Charts from "../pages/Charts";
+import richText from "../pages/richText";
+import MarkDown from "../pages/skills/MarkDown";
+import LifeCycle from "../pages/skills/LifeCycle";
+import Interview from "../pages/skills/Interview";
 import { DesktopOutlined, PieChartOutlined, UserOutlined } from '@ant-design/icons';
 
 export const headerData = [
@@ -13,6 +16,7 @@ export const headerData = [
   { path: "/nav3", title: 'ain', key: '/nav3' },
   { path: "/nav4", title: 'skill', key: '/nav4' },
 ]
+
 export const siderList = [
   [
     {
@@ -41,23 +45,23 @@ export const siderList = [
     {
       key: '/nav2',
       path: "/nav2",
-      title: 'table',
+      title: 'Charts',
       icon: <DesktopOutlined />,
-      component: PageTable
+      component: Charts
     },
     {
       key: '/nav2/option2',
       path: "/nav2/option2",
-      title: 'editor',
+      title: 'richText',
       icon: <PieChartOutlined />,
-      component: CustomEditor
+      component: richText
     },
     {
       key: '/nav2/option3',
       path: "/nav2/option3",
-      title: 'Option 2-3',
+      title: 'table',
       icon: <UserOutlined />,
-      component: () => <i>Option 2-3</i>
+      component: PageTable
     },
   ],
   [
@@ -87,9 +91,23 @@ export const siderList = [
     {
       key: '/nav4',
       path: "/nav4",
-      title: 'Markdown',
+      title: 'LifeCycle',
       icon: <DesktopOutlined />,
-      component: PageMd
-    }
+      component: LifeCycle
+    },
+    {
+      key: '/nav4/option2',
+      path: "/nav4/option2",
+      title: 'MarkDown',
+      icon: <PieChartOutlined />,
+      component: MarkDown
+    },
+    {
+      key: '/nav4/option3',
+      path: "/nav4/option3",
+      title: 'Interview',
+      icon: <UserOutlined />,
+      component: Interview
+    },
   ]
 ]
