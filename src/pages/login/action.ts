@@ -1,26 +1,30 @@
 import { loginType } from "../../redux/type";
+import { Store } from "antd/lib/form/interface";
 
-const { ADD_NUMBER } = loginType
+const { POST_LOGIN, SET_TOKEN } = loginType
 
 const defaultState = {
-  number: 0
+  token: ''
 }
-
 export default function reducer(state = defaultState, action: { type: symbol; payload: any; }) {
-
   switch (action.type) {
-    case ADD_NUMBER:
-      state.number = action.payload;
-      return { ...state };
+    case SET_TOKEN:
+      const token = action.payload
+      return { ...state, token };
     default:
       return state;
   }
 }
 
 export const action = {
-  addoNumber: (params: number) => ({
-    type: ADD_NUMBER,
+  postLogin: (params: Store) => ({
+    type: POST_LOGIN,
+    payload: params
+  }),
+  setToken: (params: string) => ({
+    type: SET_TOKEN,
     payload: params
   })
+
 }
 

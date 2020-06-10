@@ -1,12 +1,19 @@
 import { useState, useEffect } from 'react'
 import { headerData, siderList } from "../../modules/NavData";
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
+import { getLocalstorage } from "../../tools/packWay";
+import { message } from 'antd';
 
 const HomeState = () => {
   const [siderData, setSiderData] = useState<any>([])
   const [tabList, setTabList] = useState<any>([])
   const [tabSelectKey, setTabSelectKey] = useState<string>('')
   const { pathname } = useLocation()
+  const { replace } = useHistory()
+  useEffect(() => {
+    const token = getLocalstorage('SZZQ')
+    token || replace({ pathname: "/login" })
+  }, [])
   useEffect(() => {
     // 页签导航
     tabNav(pathname)
@@ -25,12 +32,15 @@ const HomeState = () => {
   const tabNav = (path: string) => {
     const newTabList = [...tabList]
     const tabArr = siderList.flat().filter(item => item.path === path)//获取点击的那一项
-    const isQualified = newTabList.some((item: any) => item.path === tabArr[0].path)//判断当前页签是否含有
-    setTabSelectKey(path)
-    const aaaa = newTabList.filter((item: any) => item.path !== tabArr[0].path)//移除页签中含有的
-    // if (!isQualified) {
-    setTabList([...aaaa, ...tabArr])
-    // }
+    if (tabArr.length) {//路由存在
+      setTabSelectKey(path)
+      const delQualified = newTabList.filter((item: any) => item.path !== tabArr[0].path)//移除页签中含有的
+      setTabList([...delQualified, ...tabArr])
+    } else {//路由不存在
+      message.warning('别瞎虾基粑乱输=>路由不存在')
+      replace({ pathname: "/login" })
+    }
+
   }
   // 页签编辑
   const tabRemove = (targetKey: string | React.MouseEvent<HTMLElement>) => {

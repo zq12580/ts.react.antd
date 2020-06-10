@@ -1,4 +1,5 @@
 // 登陆
 export const loginType = {
-  ADD_NUMBER: Symbol()
+  POST_LOGIN: Symbol(),//登录
+  SET_TOKEN: Symbol(),//设置token
 }

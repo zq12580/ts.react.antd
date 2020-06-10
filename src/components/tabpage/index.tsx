@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Tabs, Button } from 'antd';
+import { Route } from 'react-router-dom';
 
 const TabPage: React.FC<Props> = (props) => {
   const { data, selcetKey, onRemove, onChangeKey, onClean } = props
@@ -42,7 +43,7 @@ const TabPage: React.FC<Props> = (props) => {
               closable={key < tabList.length - 1}
               style={{ padding: 10, maxHeight: 830, overflow: 'auto' }}
             >
-              {<item.component />}
+              {data === tabList ? <item.component /> : <Route exact path={item.push} component={item.component}></Route>}
             </Tabs.TabPane>
           )
         })}

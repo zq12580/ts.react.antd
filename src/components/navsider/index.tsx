@@ -16,7 +16,11 @@ const NavSider: React.FC<Props> = (props) => {
   }
 
   return (
-    <Layout.Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+    <Layout.Sider
+      collapsible
+    // collapsed={collapsed}
+    //  onCollapse={onCollapse}
+    >
       <div style={{ height: 60, color: '#fff', lineHeight: '60px', textAlign: 'center', fontSize: 40 }}>
         Q
       </div>

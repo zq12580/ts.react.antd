@@ -1,48 +1,35 @@
-import React, { useState } from 'react'
-import { Typography, List, Button } from 'antd';
-import { clearArr, clearArrObj } from "../../tools/packWay";
-const { Title, Text, Paragraph } = Typography;
+import React, { useEffect } from 'react'
+import { Typography } from 'antd';
+import { clearArr, clearArrObj, sortArr } from "../../tools/packWay";
+const { Title, Paragraph } = Typography;
 
 const Interview = () => {
   const arr = [1, 1, 'true', 'true', true, true, 15, 15, false, false, undefined, undefined, null, null, NaN, NaN, 'NaN', 0, 0, 'a', 'a']
-  const [newArrList, setNewArrList] = useState<string[]>([])
-
-  console.log(clearArrObj([
-    {
-      a: '1',
-      b: '2'
-    },
-    {
-      a: '3',
-      b: '4'
-    },
-    {
-      a: '1',
-      b: '5'
-    }
-  ], 'a'));
-
-
-
-
-  // 去重
-  const repetition = () => {
-    const arrList: string[] = []
-    // set去重
-    const setArr = Array.from(new Set(arr))
-    arrList.push('set去重=>' + setArr)
-    //indexOf去重
-    const indexOfArr = arr.filter((item, key, narr) => narr.indexOf(item) === key)
-    arrList.push('indexOf去重=>' + indexOfArr)
-    console.log(clearArr(arr));
-    setNewArrList(arrList)
-  }
+  const arrObj = [
+    { a: '1', b: '2' },
+    { a: '3', b: '4' },
+    { a: '1', b: '5' }
+  ]
+  useEffect(() => {
+    console.log('数组去重:', clearArr(arr));
+    console.log('数组对象去重:', clearArrObj(arrObj, 'a'));
+    console.log('数组排序:', sortArr([9, 8, 5, 6]));
+  }, [])
   return (
     <>
-      <Paragraph copyable>原数组 : const arr = [1, 1, 'true', 'true', true, true, 15, 15, false, false, undefined, undefined, null, null, NaN, NaN, 'NaN', 0, 0, 'a', 'a']</Paragraph>
-      <Title level={4}>数组去重 <Button onClick={() => repetition()}>点击</Button></Title>
-      {newArrList.map(item => <Paragraph ellipsis key={item}>{item}</Paragraph>)}
-
+      <div style={{ width: '50%', float: 'left' }}>
+        <Title level={4}>设置Localstorage:<Paragraph copyable>setLocalstorage()</Paragraph></Title>
+        <Title level={4}>设置Localstorage:<Paragraph copyable>getLocalstorage()</Paragraph></Title>
+        <Title level={4}>清楚Localstorage:<Paragraph copyable>delLocalStorage()</Paragraph></Title>
+        <Title level={4}>数组去重:<Paragraph copyable>clearArr()</Paragraph></Title>
+        <Title level={4}>数组对象去重:<Paragraph copyable>clearArrObj()</Paragraph></Title>
+        <Title level={4}>数组排序:<Paragraph copyable>sortArr()</Paragraph></Title>
+      </div>
+      <div style={{ width: '50%', float: 'right' }}>
+        <Title level={4}>去除字符串两端空格:<Paragraph copyable>string.trim()|trimStart()|trimLeft()|trimEnd()|trimRight()</Paragraph></Title>
+        <Title level={4}>数组展平:<Paragraph copyable>arr.flat(展平层级)</Paragraph></Title>
+        <Title level={4}>'??'=>只会识别null和undefined;'a?.b'会返回undefind</Title>
+      </div>
     </>
 
   )
