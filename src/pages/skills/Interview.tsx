@@ -4,8 +4,8 @@ import { clearArr, clearArrObj, sortArr } from "../../tools/packWay";
 const { Title, Paragraph } = Typography;
 
 const Interview = () => {
-  const arr = [1, 1, 'true', 'true', true, true, 15, 15, false, false, undefined, undefined, null, null, NaN, NaN, 'NaN', 0, 0, 'a', 'a']
-  const arrObj = [
+  const arr: any[] = [1, 1, 'true', 'true', true, true, 15, 15, false, false, undefined, undefined, null, null, NaN, NaN, 'NaN', 0, 0, 'a', 'a']
+  const arrObj: any[] = [
     { a: '1', b: '2' },
     { a: '3', b: '4' },
     { a: '1', b: '5' }
@@ -14,6 +14,7 @@ const Interview = () => {
     console.log('数组去重:', clearArr(arr));
     console.log('数组对象去重:', clearArrObj(arrObj, 'a'));
     console.log('数组排序:', sortArr([9, 8, 5, 6]));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <>
@@ -28,7 +29,7 @@ const Interview = () => {
       <div style={{ width: '50%', float: 'right' }}>
         <Title level={4}>去除字符串两端空格:<Paragraph copyable>string.trim()|trimStart()|trimLeft()|trimEnd()|trimRight()</Paragraph></Title>
         <Title level={4}>数组展平:<Paragraph copyable>arr.flat(展平层级)</Paragraph></Title>
-        <Title level={4}>'??'=>只会识别null和undefined;'a?.b'会返回undefind</Title>
+        <Title level={4}>'??'={">"}只会识别null和undefined;'a?.b'会返回undefind</Title>
       </div>
     </>
 

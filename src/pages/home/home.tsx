@@ -4,35 +4,24 @@ import QueueAnim from 'rc-queue-anim';
 import NavHeader from "../../components/navheader";
 import NavSider from "../../components/navsider";
 import TabPage from '../../components/tabpage';
-import HomeState from "./state";
-
-const Home = (props: any) => {
-  const { headerData, siderData, tabSelectKey, tabList, tabRemove, tabChangeKey, tabClean } = HomeState()
+import { useSelector } from 'react-redux';
+import HomeState from "./action";
+const Home = () => {
+  const { headerData, tabList, siderData, curKey } = useSelector((state: any) => state.homeData)
+  const { onChangeKey, onRemove, onCleanTab } = HomeState()
   return (
-    <QueueAnim type='bottom' delay={500} duration={1000}>
+    <QueueAnim type='bottom' duration={1000}>
       <Layout style={{ minHeight: '100vh', background: '#fff' }} key={'box'}>
-        <NavSider data={siderData} curKey={tabSelectKey} />
+        <NavSider data={siderData} curKey={curKey} />
         <Layout.Content >
-          <NavHeader data={headerData} curKey={tabSelectKey} />
+          <NavHeader data={headerData} curKey={curKey} />
           <TabPage
             data={tabList}
-            selcetKey={tabSelectKey}
-            onRemove={tabRemove}
-            onChangeKey={tabChangeKey}
-            onClean={tabClean}
+            curKey={curKey}
+            onRemove={onRemove}
+            onChangeKey={onChangeKey}
+            onClean={onCleanTab}
           />
-          {/* <Switch>
-            <Route exact path="/nav1" component={Demo1}></Route>
-            <Route exact path="/nav1/option2" component={Login}></Route>
-            <Route exact path="/nav1/option3" component={Demo1}></Route>
-            <Route exact path="/nav2" component={Login}></Route>
-            <Route exact path="/nav2/option2" component={Login}></Route>
-            <Route exact path="/nav2/option3" component={Demo1}></Route>
-            <Route exact path="/nav3" component={() => <i>nav3</i>}></Route>
-            <Route exact path="/nav3/option2" component={Login}></Route>
-            <Route exact path="/nav3/option3" component={Demo1}></Route>
-            <Route path="/*" component={Nothingness}></Route>
-          </Switch> */}
         </Layout.Content>
       </Layout>
     </QueueAnim>

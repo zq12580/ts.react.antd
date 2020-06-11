@@ -2,19 +2,14 @@ import React from 'react'
 import { Form, Input, Button, message } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { setLocalstorage } from "../../tools/packWay";
-// import { action } from "./action";
-// import { useDispatch, useSelector } from 'react-redux';
+
 import Style from './login.module.scss';
 import { Store } from 'antd/lib/form/interface';
 
 const Login = (props: any) => {
-  // const dispatch = useDispatch();
-  // const { router } = useSelector((state: any) => state)
-  // const { postLogin } = action
   const [form] = Form.useForm();
   const { replace } = useHistory()
   const onSubmit = (info: Store) => {
-    console.log(info);
     if (info.username === "admin" && info.password === "123456") {
       setLocalstorage('SZZQ', '我是SZZQ的token')
       replace({ pathname: "/" })
@@ -40,11 +35,3 @@ const Login = (props: any) => {
   )
 }
 export default Login
-console.log(`
-██╗  ██╗██╗  ██╗ ██████╗      ██╗   ███████╗██████╗ ███╗   ███╗
-╚██╗██╔╝██║  ██║██╔════╝      ██║   ██╔════╝██╔══██╗████╗ ████║
- ╚███╔╝ ███████║██║  ███╗     ██║   ███████╗██████╔╝██╔████╔██║
- ██╔██╗ ██╔══██║██║   ██║██   ██║   ╚════██║██╔══██╗██║╚██╔╝██║
-██╔╝ ██╗██║  ██║╚██████╔╝╚█████╔╝██╗███████║██║  ██║██║ ╚═╝ ██║
-╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝
- `);

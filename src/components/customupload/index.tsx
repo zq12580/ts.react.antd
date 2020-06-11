@@ -7,15 +7,6 @@ import { UploadChangeParam } from 'antd/lib/upload';
 import { UploadFile, RcFile, UploadListType, ShowUploadListInterface } from 'antd/lib/upload/interface';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 
-
-function getBase64(file: any) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
-  });
-}
 const CustomUpload: React.FC<Props> = (props) => {
   const { fileData, listType, accept, action, data, disabled, fileNum, showUploadList, uploadBut, uploadCrop, multiple } = props
   const [fileList, setFileList] = useState<UploadFile[]>([])
@@ -118,7 +109,6 @@ const CustomUpload: React.FC<Props> = (props) => {
 }
 
 export default CustomUpload
-
 
 // 数据类型
 interface Props {

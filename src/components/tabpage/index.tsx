@@ -3,14 +3,14 @@ import { Tabs, Button } from 'antd';
 import { Route } from 'react-router-dom';
 
 const TabPage: React.FC<Props> = (props) => {
-  const { data, selcetKey, onRemove, onChangeKey, onClean } = props
+  const { data, curKey, onRemove, onChangeKey, onClean } = props
   const [tabList, setTabList] = useState<any>([])
   const [activeKey, setActiveKey] = useState<string>('')
 
   useEffect(() => {
     setTabList(data)
-    setActiveKey(selcetKey)
-  }, [selcetKey, data])
+    setActiveKey(curKey)
+  }, [curKey, data])
 
   // 编辑
   const onEdit = (targetKey: string | React.MouseEvent<HTMLElement>, action: 'add' | 'remove') => {
@@ -32,7 +32,7 @@ const TabPage: React.FC<Props> = (props) => {
         onChange={onChange}
         animated
         size='small'
-        tabBarExtraContent={<Button type='dashed' danger onClick={onClean}>清除页签</Button>}
+        tabBarExtraContent={tabList.length > 1 ? <Button type='dashed' danger onClick={onClean}>清除页签</Button> : false}
         tabBarStyle={{ margin: 0 }}
       >
         {tabList.map((item: any, key: number) => {
@@ -56,7 +56,7 @@ export default TabPage
 // 数据类型
 interface Props {
   data: any[],
-  selcetKey: string,
+  curKey: string,
   onRemove: (targetKey: string | React.MouseEvent<HTMLElement>) => void,
   onChangeKey: (activeKey: string) => void
   onClean: () => void

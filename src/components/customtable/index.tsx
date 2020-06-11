@@ -1,18 +1,16 @@
 import React, { useState } from 'react'
-import { AgGridReact, AgGridColumn } from 'ag-grid-react';
-import { ColGroupDef, ColDef, GridReadyEvent, CellClickedEvent, CellDoubleClickedEvent, CellContextMenuEvent, GridApi, ColumnApi, ExcelExportParams } from 'ag-grid-community';
+import { AgGridReact } from 'ag-grid-react';
+import { ColDef, GridReadyEvent, GridApi } from 'ag-grid-community';
 import './style.scss';
 import { Empty, Button } from 'antd';
 
 const CustomTable: React.FC<Props> = (props) => {
   const { columnDefs, rowData, rowSelection } = props
   const [gridApi, setGridApi] = useState<GridApi>()
-  const [gridColumnApi, setGridColumnApi] = useState<ColumnApi>()
 
   // 组件api
   const onGridReady = (params: GridReadyEvent) => {
     setGridApi(params.api)
-    setGridColumnApi(params.columnApi)
   }
   // 默认列定义
   const defaultColDef = {
@@ -42,36 +40,8 @@ const CustomTable: React.FC<Props> = (props) => {
         defaultColDef={defaultColDef}//默认列定义
         suppressRowClickSelection={true}//点击不选中复选框
         suppressDragLeaveHidesColumns={true}//禁止拖动离开隐藏列
-
       >
-        {/* 列定义二*/}
-        {/* {columnDefs.map((item, key) => {
-          return (
-            <AgGridColumn
-              key={key}
-              field={item.field}//列数据
-              headerName={item.headerName}//列名
-              width={item.width}//宽
-              minWidth={item.minWidth}//最小宽 
-              maxWidth={item.maxWidth}//最大宽
-              pinned={item.pinned}//将一列固定到一侧
-              hide={item.hide}//是否隐藏
-              headerCheckboxSelection={rowSelection === 'multiple' && !!item.checkboxSelection}//头部是否有多选
-              checkboxSelection={item.checkboxSelection}//是否有选择复选框
-              suppressSizeToFit={item.suppressSizeToFit}//是否禁止自动调节大小
-              resizable={!item.resizable}//是否禁止伸缩
-              sortable={!item.sortable}//是否列sort排序
-              filter={!item.filter}//是否列过滤
-              cellStyle={item.cellStyle || {}}//设置样式=========================??
-              cellClass={item.cellClass || []}//设置类名=========================??
-              cellClassRules={item.cellClassRules || {}}//自定义规则=========================??
-              suppressMovable={item.suppressMovable}
-              onCellClicked={(event: CellClickedEvent) => console.log('单击单元格时调用的回调=>', event)}//单击单元格时调用的回调。
-              onCellDoubleClicked={(event: CellDoubleClickedEvent) => console.log('双击单元格时调用的回调=>', event)}//双击单元格时调用的回调。
-              onCellContextMenu={(event: CellContextMenuEvent) => console.log('右键单击单元格时调用的回调=>', event)}//右键单击单元格时调用的回调。
-            />
-          )
-        })} */}
+
       </AgGridReact>
     </div >
   )

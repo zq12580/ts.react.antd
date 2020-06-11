@@ -1,6 +1,5 @@
 import React from 'react'
 import CustomIcon from "../../components/customicon";
-import { Space } from 'antd';
 const PageIcon = () => {
   return (
     <div style={{ flexWrap: 'wrap', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

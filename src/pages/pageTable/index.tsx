@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { GET_TABLE, POST_TABLE } from '../../api';
+import { GET_TABLE } from '../../api';
 import CustomTable from "../../components/customtable";
 const PageTable = () => {
   useEffect(() => {
     requestData()
   }, [])
   const [rowData, setRowData] = useState<any>([])
-  const [columnDefs, setColumnDefs] = useState([
+  const columnDefs = [
     {
       headerName: "编码",
       field: "id",
@@ -27,14 +27,11 @@ const PageTable = () => {
     { headerName: "标题", field: "title" },
     { headerName: "内容", field: "body" },
     { headerName: "userId", field: "userId", }
-  ])
-
+  ]
 
   const requestData = async () => {
     const resData = await GET_TABLE()
     setRowData(resData);
-    // const resData2 = await POST_TABLE()
-    // console.log('resData2=>', resData2);
   }
 
 

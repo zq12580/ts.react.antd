@@ -30,6 +30,7 @@ const CustomEditor: React.FC<Props> = (props) => {
     {
       key: 'custom-modal', type: 'modal', text: '模态框控件', modal: {
         id: 'my-moda-1', title: '控件标题',
+        // eslint-disable-next-line jsx-a11y/alt-text
         children: (<img src="https://margox.cn/wp-content/uploads/2016/10/FA157E13E8B77E6E11290E9DF4C5ED7D-480x359.jpg" />)
       }
     },

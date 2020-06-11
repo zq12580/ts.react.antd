@@ -8,7 +8,7 @@ export const getLocalstorage = (key: string) => {
   const data = localStorage.getItem(key);
   return data ? JSON.parse(data) : null;
 };
-// 清楚Localstorage
+// 清除Localstorage
 export const delLocalStorage = (key: string) => {
   localStorage.removeItem(key);
 };

@@ -1,5 +1,4 @@
 import React from 'react'
-import { AvatarProps } from 'antd/lib/avatar';
 import { Button } from 'antd';
 class LifeCycle extends React.Component<IProps, IState>{
   constructor(props: IProps) {
@@ -7,41 +6,37 @@ class LifeCycle extends React.Component<IProps, IState>{
     this.state = {
       data: 0,
     };
-    console.log('constructor');
   }
 
-  componentWillMount() {
-    console.log('弃用componentWillMount');
-  }
+  // componentWillMount() {
+  //   console.log('弃用componentWillMount');
+  // }
 
-  componentDidMount() {
-    console.log('componentDidMount');
-    console.log('创建结束--------------------------------------');
-  }
+  // componentDidMount() {
+  //   console.log('componentDidMount');
+  //   console.log('创建结束--------------------------------------');
+  // }
 
-  shouldComponentUpdate(nextProps: Readonly<IProps>, nextState: Readonly<IState>, nextContext: any): boolean {
-    console.log('shouldComponentUpdate=>nextProps', nextProps);
-    console.log('shouldComponentUpdate=>nextState', nextState);
-    return true
-  }
+  // shouldComponentUpdate(nextProps: Readonly<IProps>, nextState: Readonly<IState>, nextContext: any): boolean {
+  //   console.log('shouldComponentUpdate=>nextProps', nextProps);
+  //   console.log('shouldComponentUpdate=>nextState', nextState);
+  //   return true
+  // }
 
-  componentWillUpdate() {
-    console.log('弃用componentWillUpdate');
-  }
+  // componentWillUpdate() {
+  //   console.log('弃用componentWillUpdate');
+  // }
 
-  componentDidUpdate(prevProps: AvatarProps): void {
-    console.log('componentDidUpdate=>AvatarProps', prevProps);
-    console.log('更新结束--------------------------------------');
-  }
+  // componentDidUpdate(prevProps: AvatarProps): void {
+  //   console.log('componentDidUpdate=>AvatarProps', prevProps);
+  //   console.log('更新结束--------------------------------------');
+  // }
 
-  componentWillUnmount() {
-    console.log('componentWillUnmount');
-    console.log('卸载---------');
-  }
-
-
+  // componentWillUnmount() {
+  //   console.log('componentWillUnmount');
+  //   console.log('卸载---------');
+  // }
   render() {
-    console.log('render');
     return (
       <div >
         <img src={require('../../assets/images/lifeCycle.png')} alt="" height={800} />

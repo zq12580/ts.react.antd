@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 import CustomUpload from "../../components/customupload";
 import { Button } from 'antd';

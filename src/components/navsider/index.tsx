@@ -4,23 +4,14 @@ import { Link } from 'react-router-dom';
 
 const NavSider: React.FC<Props> = (props) => {
   const { data, curKey } = props
-  const [collapsed, setCollapsed] = useState(false)
   const [selectedKey, setSelectedKey] = useState('')
 
   useEffect(() => {
     setSelectedKey(curKey)
   }, [curKey])
-  // 侧边栏显示隐藏
-  const onCollapse = () => {
-    setCollapsed(!collapsed)
-  }
 
   return (
-    <Layout.Sider
-      collapsible
-    // collapsed={collapsed}
-    //  onCollapse={onCollapse}
-    >
+    <Layout.Sider collapsible >
       <div style={{ height: 60, color: '#fff', lineHeight: '60px', textAlign: 'center', fontSize: 40 }}>
         Q
       </div>

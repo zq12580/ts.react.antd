@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Badge, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
 
 const NavHeader: React.FC<Props> = (props) => {
@@ -19,10 +19,14 @@ const NavHeader: React.FC<Props> = (props) => {
   }
 
   return (
-    <Layout.Header >
+    <Layout.Header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
       <Menu theme="dark" mode="horizontal" selectedKeys={[selectedKey]}>
         {data.map((item: NavData) => <Menu.Item key={item.key}><Link to={item.path}>{item.title}</Link></Menu.Item>)}
       </Menu>
+      <Badge count={1} >
+        <Avatar shape="square">Q</Avatar>
+      </Badge>
+
     </Layout.Header>
   )
 }
