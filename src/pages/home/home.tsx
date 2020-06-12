@@ -13,7 +13,7 @@ const Home = () => {
     <QueueAnim type='bottom' duration={1000}>
       <Layout style={{ minHeight: '100vh', background: '#fff' }} key={'box'}>
         <NavSider data={siderData} curKey={curKey} />
-        <Layout.Content >
+        <Layout.Content>
           <NavHeader data={headerData} curKey={curKey} />
           <TabPage
             data={tabList}

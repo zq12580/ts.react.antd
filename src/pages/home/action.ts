@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getLocalstorage, delLocalStorage } from "../../tools/packWay";
 import { homeType } from "../../redux/optionType";
@@ -7,7 +7,7 @@ import { useLocation, useHistory } from 'react-router-dom';
 import { message } from 'antd';
 const { SET_TOKEN, SET_SIDERLIST, SET_TABLIST, SET_CURKEY, SET_HEADERLIST } = homeType
 
-const HomeState = () => {
+const useHomeState = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation()
   const { replace } = useHistory()
@@ -92,4 +92,4 @@ const HomeState = () => {
   })
   return ({ onRemove, onChangeKey, onCleanTab })
 }
-export default HomeState
+export default useHomeState

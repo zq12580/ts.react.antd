@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Tabs, Button } from 'antd';
 import { Route } from 'react-router-dom';
-
+import { CloseCircleOutlined } from '@ant-design/icons';
 const TabPage: React.FC<Props> = (props) => {
-  const { data, curKey, onRemove, onChangeKey, onClean } = props
+  const { data, curKey, onRemove, onChangeKey, onClean, style } = props
   const [tabList, setTabList] = useState<any>([])
   const [activeKey, setActiveKey] = useState<string>('')
 
@@ -32,8 +32,10 @@ const TabPage: React.FC<Props> = (props) => {
         onChange={onChange}
         animated
         size='small'
-        tabBarExtraContent={tabList.length > 1 ? <Button type='dashed' danger onClick={onClean}>清除页签</Button> : false}
+        tabBarExtraContent={tabList.length > 1 ? <CloseCircleOutlined onClick={onClean} style={{ padding: '0 10px' }} /> : false}
+
         tabBarStyle={{ margin: 0 }}
+        style={style}
       >
         {tabList.map((item: any, key: number) => {
           return (
@@ -41,7 +43,7 @@ const TabPage: React.FC<Props> = (props) => {
               tab={<span style={{ fontWeight: 500 }}>{item.title}</span>}
               key={item.key}
               closable={key < tabList.length - 1}
-              style={{ padding: 10, maxHeight: 830, overflow: 'auto' }}
+              style={{ padding: 10, overflow: 'auto', }}
             >
               {data === tabList ? <item.component /> : <Route exact path={item.push} component={item.component}></Route>}
             </Tabs.TabPane>
@@ -60,4 +62,5 @@ interface Props {
   onRemove: (targetKey: string | React.MouseEvent<HTMLElement>) => void,
   onChangeKey: (activeKey: string) => void
   onClean: () => void
+  style?: React.CSSProperties
 }
