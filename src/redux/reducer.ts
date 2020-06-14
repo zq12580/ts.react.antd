@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import homeReducer from "../pages/home/reducer";
+import tableReduce from "../pages/pageTable/reduce";
 
 const createRootReducer = (history: any) => {
   const appReducer = combineReducers({
     router: connectRouter(history),
-    homeData: homeReducer
+    homeData: homeReducer,
+    tableData: tableReduce
   });
   const rootReducer = (state: any, action: any) => {
     // 重置redux

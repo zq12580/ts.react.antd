@@ -33,7 +33,6 @@ const TabPage: React.FC<Props> = (props) => {
         animated
         size='small'
         tabBarExtraContent={tabList.length > 1 ? <CloseCircleOutlined onClick={onClean} style={{ padding: '0 10px' }} /> : false}
-
         tabBarStyle={{ margin: 0 }}
         style={style}
       >
@@ -43,7 +42,7 @@ const TabPage: React.FC<Props> = (props) => {
               tab={<span style={{ fontWeight: 500 }}>{item.title}</span>}
               key={item.key}
               closable={key < tabList.length - 1}
-              style={{ padding: 10, overflow: 'auto', }}
+              style={{ padding: 10, overflow: 'auto' }}
             >
               {data === tabList ? <item.component /> : <Route exact path={item.push} component={item.component}></Route>}
             </Tabs.TabPane>

@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { AgGridReact } from 'ag-grid-react';
-import { ColDef, GridReadyEvent, GridApi } from 'ag-grid-community';
+import { ColDef, GridReadyEvent, GridApi, SelectionChangedEvent, CellDoubleClickedEvent } from 'ag-grid-community';
 import './style.scss';
 import { Empty, Button } from 'antd';
 
 const CustomTable: React.FC<Props> = (props) => {
-  const { columnDefs, rowData, rowSelection } = props
+  const { columnDefs, rowData, rowSelection, onSelectionChanged, onCellDoubleClicked } = props
   const [gridApi, setGridApi] = useState<GridApi>()
 
   // 组件api
@@ -18,7 +18,7 @@ const CustomTable: React.FC<Props> = (props) => {
     flex: 1,//填充网格的剩余空白空间时使用
     resizable: true,//设置为true允许调整列的大小。
     sortable: true,//列上排序
-    suppressMovable: false,//拖动
+    suppressMovable: false,//是否禁止拖动
   }
   // 导出
   const exportExcel = () => {
@@ -36,12 +36,13 @@ const CustomTable: React.FC<Props> = (props) => {
         unSortIcon={true}//是否显示未排序的图标
         noRowsOverlayComponentFramework={() => <Empty />}
         rowSelection={rowSelection}//行选中 'single' | 'multiple'
+        onSelectionChanged={onSelectionChanged}// 选中行改变
         onGridReady={onGridReady}//api方法
         defaultColDef={defaultColDef}//默认列定义
         suppressRowClickSelection={true}//点击不选中复选框
         suppressDragLeaveHidesColumns={true}//禁止拖动离开隐藏列
+        onCellDoubleClicked={onCellDoubleClicked}
       >
-
       </AgGridReact>
     </div >
   )
@@ -54,4 +55,6 @@ interface Props {
   columnDefs: (ColDef)[];//表头
   rowData: any[];//数据
   rowSelection?: 'single' | 'multiple';//单选多选
+  onSelectionChanged?: (event: SelectionChangedEvent) => void//选择框变化
+  onCellDoubleClicked?: (event: CellDoubleClickedEvent) => void//双击单元格事件
 }

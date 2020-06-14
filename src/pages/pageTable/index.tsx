@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { GET_TABLE } from '../../api';
+import React from 'react'
 import CustomTable from "../../components/customtable";
+import useTable from "./action";
+import { useSelector } from "react-redux";
+
 const PageTable = () => {
-  useEffect(() => {
-    requestData()
-  }, [])
-  const [rowData, setRowData] = useState<any>([])
+  const { onTableSelect } = useTable()
+  const { tableList } = useSelector((state: any) => state.tableData)
   const columnDefs = [
     {
       headerName: "编码",
@@ -28,21 +28,13 @@ const PageTable = () => {
     { headerName: "内容", field: "body" },
     { headerName: "userId", field: "userId", }
   ]
-
-  const requestData = async () => {
-    const resData = await GET_TABLE()
-    setRowData(resData);
-  }
-
-
-
-
   return (
     <div>
       <CustomTable
         columnDefs={columnDefs}
-        rowData={rowData}
-        rowSelection={'multiple'}
+        rowData={tableList}
+        rowSelection={'single'}
+        onSelectionChanged={onTableSelect}
       />
     </div>
   )
