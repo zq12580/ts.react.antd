@@ -33,7 +33,7 @@ const TabPage: React.FC<Props> = (props) => {
         animated
         size='small'
         tabBarExtraContent={tabList.length > 1 ? <CloseCircleOutlined onClick={onClean} style={{ padding: '0 10px' }} /> : false}
-        tabBarStyle={{ margin: 0 }}
+        // tabBarStyle={{ margin: 0 }}
         style={style}
       >
         {tabList.map((item: any, key: number) => {

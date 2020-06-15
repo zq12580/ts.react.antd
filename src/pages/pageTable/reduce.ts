@@ -1,4 +1,4 @@
-import { actionTypes } from "./actionTypes";
+import { actionTypes } from "./action";
 const { SET_TABLELIST, SET_CURSELECT } = actionTypes
 
 const defaultState = {

@@ -1,6 +1,6 @@
 import React from 'react'
 import CustomTable from "../../components/customtable";
-import useTable from "./action";
+import useTable from "./hook";
 import { useSelector } from "react-redux";
 
 const PageTable = () => {

@@ -1,4 +1,4 @@
-import { homeType } from "../../redux/optionType";
+import { homeType } from "./action";
 const { SET_TOKEN, SET_SIDERLIST, SET_TABLIST, SET_CURKEY, SET_HEADERLIST } = homeType
 
 
@@ -32,21 +32,3 @@ export default function reducer(state = defaultState, action: { type: symbol; pa
   }
 }
 
-// export const action = {
-//   setToken: (params: string) => ({
-//     type: SET_TOKEN,
-//     payload: params
-//   }),
-//   setSiderList: (params: any[]) => ({
-//     type: SET_SIDERLIST,
-//     payload: params
-//   }),
-//   setTabList: (params: any[]) => ({
-//     type: SET_TABLIST,
-//     payload: params
-//   }),
-//   setCurKey: (params: string) => ({
-//     type: SET_CURKEY,
-//     payload: params
-//   }),
-// }

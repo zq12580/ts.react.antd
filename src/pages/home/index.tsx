@@ -1,11 +1,11 @@
 import React from 'react'
-import { Layout } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import NavHeader from "../../components/navheader";
 import NavSider from "../../components/navsider";
 import TabPage from '../../components/tabpage';
 import { useSelector } from 'react-redux';
-import HomeState from "./action";
+import { Layout } from 'antd';
+import HomeState from "./hook";
 const Home = () => {
   const { headerData, tabList, siderData, curKey } = useSelector((state: any) => state.homeData)
   const { onChangeKey, onRemove, onCleanTab } = HomeState()

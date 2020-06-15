@@ -1,6 +1,5 @@
 import { takeEvery, select, take, call, put } from '@redux-saga/core/effects';
-import { actionTypes } from "./actionTypes";
-import { tableAction } from "./action";
+import { tableAction, actionTypes } from "./action";
 import { GET_TABLE_API } from '../../api';
 const { GET_TABLELIST, SET_CURSELECT } = actionTypes
 const { setTableList } = tableAction

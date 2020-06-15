@@ -1,24 +1,9 @@
-import { useEffect } from 'react'
-import { actionTypes } from "./actionTypes";
-import { useDispatch } from 'react-redux';
-import { SelectionChangedEvent } from 'ag-grid-community';
-const { GET_TABLELIST, SET_TABLELIST, SET_CURSELECT } = actionTypes
-
-const useTable = () => {
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(tableAction.getTableList())
-  }, [])
-  // 选中行事件
-  const onTableSelect = (params: SelectionChangedEvent) => {
-    const curSelect = params.api.getSelectedRows()
-    dispatch(tableAction.setCurSelect(curSelect))
-  }
-  return { onTableSelect }
+export const actionTypes = {
+  GET_TABLELIST: Symbol(),//获取表单信息
+  SET_TABLELIST: Symbol(),//设置表单信息
+  SET_CURSELECT: Symbol()//设置当前选择行
 }
-export default useTable
-
-
+const { GET_TABLELIST, SET_TABLELIST, SET_CURSELECT } = actionTypes
 
 export const tableAction = {
   getTableList: () => ({
