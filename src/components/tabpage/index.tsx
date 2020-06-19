@@ -44,6 +44,7 @@ const TabPage: React.FC<Props> = (props) => {
               closable={key < tabList.length - 1}
               style={{ padding: 10, overflow: 'auto' }}
             >
+              {/* <item.component /> */}
               {data === tabList ? <item.component /> : <Route exact path={item.push} component={item.component}></Route>}
             </Tabs.TabPane>
           )

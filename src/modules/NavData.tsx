@@ -7,6 +7,7 @@ import Charts from "../pages/Charts";
 import richText from "../pages/richText";
 import ContextReducer from "../pages/ContextReducer";
 import MarkDown from "../pages/skills/MarkDown";
+import Css3 from "../pages/Css3";
 import LifeCycle from "../pages/skills/LifeCycle";
 import Interview from "../pages/skills/Interview";
 import Hooks from "../pages/skills/Hooks";
@@ -124,6 +125,13 @@ export const siderList = [
       title: 'ContextReducer',
       icon: <UserOutlined />,
       component: ContextReducer
+    },
+    {
+      key: '/nav4/option6',
+      path: "/nav4/option6",
+      title: 'Css3',
+      icon: <UserOutlined />,
+      component: Css3
     },
 
   ]

@@ -8,6 +8,9 @@ const useTable = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getTableList())
+    return (() => {
+      console.log('销毁了');
+    })
   }, [])
   // 选中行事件
   const onTableSelect = (params: SelectionChangedEvent) => {

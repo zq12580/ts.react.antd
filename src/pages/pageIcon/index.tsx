@@ -1,6 +1,9 @@
 import React from 'react'
 import CustomIcon from "../../components/customicon";
 const PageIcon = () => {
+
+
+
   return (
     <div style={{ flexWrap: 'wrap', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
       <CustomIcon type='icon-sx_1' size={200} />
