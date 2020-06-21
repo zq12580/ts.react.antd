@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CustomUpload from "../../components/customupload";
+import CustomUpload from "../../components/CustomUpload";
 import { Button } from 'antd';
 const PageUpload = () => {
   return (

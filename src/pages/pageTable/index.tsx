@@ -1,11 +1,11 @@
 import React from 'react'
-import CustomTable from "../../components/customtable";
+import CustomTable from "../../components/CustomTable";
 import useTable from "./hook";
 import { useSelector } from "react-redux";
 
 const PageTable = () => {
   const { onTableSelect } = useTable()
-  const { tableList } = useSelector((state: any) => state.tableData)
+  const { tableList, loading } = useSelector((state: any) => state.tableData)
   const columnDefs = [
     {
       headerName: "编码",
@@ -35,6 +35,7 @@ const PageTable = () => {
         rowData={tableList}
         rowSelection={'single'}
         onSelectionChanged={onTableSelect}
+        loading={loading}
       />
     </div>
   )

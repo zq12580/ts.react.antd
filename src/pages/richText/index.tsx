@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import CustomEditor from "../../components/customeditor";
+import CustomEditor from "../../components/CustomEditor";
 
 const RichText = () => {
   const [editVal, setEditVal] = useState('<p>hellow zq</p>')
-  // 
   const onChange = (info: string) => {
     setEditVal(info);
   }

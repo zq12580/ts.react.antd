@@ -11,6 +11,7 @@ import Css3 from "../pages/Css3";
 import LifeCycle from "../pages/skills/LifeCycle";
 import Interview from "../pages/skills/Interview";
 import Hooks from "../pages/skills/Hooks";
+import HigherOrderComponents from '../pages/skills/HigherOrderComponents';
 import { DesktopOutlined, PieChartOutlined, UserOutlined } from '@ant-design/icons';
 
 export const headerData = [
@@ -133,6 +134,12 @@ export const siderList = [
       icon: <UserOutlined />,
       component: Css3
     },
-
+    {
+      key: '/nav4/option7',
+      path: "/nav4/option7",
+      title: 'HigherOrderComponents',
+      icon: <UserOutlined />,
+      component: HigherOrderComponents
+    },
   ]
 ]
