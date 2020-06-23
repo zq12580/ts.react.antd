@@ -1,4 +1,5 @@
 import React from 'react'
+import { DesktopOutlined, PieChartOutlined, UserOutlined } from '@ant-design/icons';
 import PageTable from "../pages/pageTable";
 import PageIcon from "../pages/pageIcon";
 import PageUpload from "../pages/pageUpload";
@@ -12,7 +13,7 @@ import LifeCycle from "../pages/skills/LifeCycle";
 import Interview from "../pages/skills/Interview";
 import Hooks from "../pages/skills/Hooks";
 import HigherOrderComponents from '../pages/skills/HigherOrderComponents';
-import { DesktopOutlined, PieChartOutlined, UserOutlined } from '@ant-design/icons';
+import PrototypeChain from '../pages/skills/PrototypeChain';
 
 export const headerData = [
   { path: "/nav1", title: 'antd', key: '/nav1' },
@@ -140,6 +141,13 @@ export const siderList = [
       title: 'HigherOrderComponents',
       icon: <UserOutlined />,
       component: HigherOrderComponents
+    },
+    {
+      key: '/nav4/option8',
+      path: "/nav4/option8",
+      title: 'PrototypeChain',
+      icon: <UserOutlined />,
+      component: PrototypeChain
     },
   ]
 ]

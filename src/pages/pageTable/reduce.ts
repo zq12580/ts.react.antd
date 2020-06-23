@@ -1,4 +1,5 @@
 import { actionTypes } from "./action";
+import { AnyAction } from "redux";
 const { SET_TABLELIST, SET_CURSELECT, SET_LOADING } = actionTypes
 
 const defaultState = {
@@ -6,7 +7,7 @@ const defaultState = {
   curSelect: [],
   loading: true,
 }
-export default function reducer(state = defaultState, action: { type: symbol; payload: any; }) {
+export default function reducer(state = defaultState, action: AnyAction) {
   const { type, payload } = action
   switch (type) {
     case SET_TABLELIST:

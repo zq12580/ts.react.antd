@@ -16,13 +16,16 @@ const HigherOrderComponents: React.FC<Props> = (props) => {
 }
 
 export default HigherOrder(HigherOrderComponents)
-HigherOrderComponents.defaultProps = {
-  age: 18
-};
 interface Props {
   age?: number;
   sex?: string;
 }
+HigherOrderComponents.defaultProps = {
+  age: 18
+};
+
+
+
 
 const Aa = () => {
   return (
