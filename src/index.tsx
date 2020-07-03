@@ -4,7 +4,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
+  // <React.StrictMode>  //react中的严格模式
   <App />,
+  // </React.StrictMode>
   document.getElementById('root')
 );
 
