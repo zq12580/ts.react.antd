@@ -19,7 +19,7 @@
     "ag-grid-react": "^23.1.1",
     "antd": "^4.2.5",
     "antd-img-crop": "^3.3.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "braft-editor": "^2.3.9",
     "connected-react-router": "^6.8.0",
     "craco-less": "^1.16.0",
